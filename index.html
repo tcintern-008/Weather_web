@@ -17,7 +17,10 @@
   <div class="container">
     <div class="top-bar">
       <h2>Weather App</h2>
-      <button id="themeToggle" class="theme-toggle">🌙</button>
+      <div class="top-bar-actions">
+        <button id="unitToggle" class="unit-toggle">°F</button>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </div>
     </div>
 
     <form id="searchForm" class="search-box">
@@ -67,6 +70,15 @@
           <span id="feelsLike" class="value"></span>
         </div>
       </div>
+    </div>
+
+    <!-- recent searches -->
+    <div id="historySection" class="history-section hidden">
+      <div class="history-header">
+        <span>Recent Searches</span>
+        <button id="clearHistory" class="clear-btn">Clear History</button>
+      </div>
+      <ul id="historyList" class="history-list"></ul>
     </div>
   </div>
 
