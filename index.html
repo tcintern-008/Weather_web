@@ -5,81 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Weather App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="welcome">
-    <h1>Welcome to Weather App</h1>
-    <p>Get real-time weather updates for any city around the world</p>
-  </header>
 
-  <div class="container">
-    <div class="top-bar">
-      <h2>Weather App</h2>
+  <div class="page">
+
+    <header class="top-bar">
+      <div class="brand">
+        <span class="brand-mark">◐</span>
+        <span class="brand-name">weather<span class="brand-accent">/</span>app</span>
+      </div>
       <div class="top-bar-actions">
         <button id="unitToggle" class="unit-toggle">°F</button>
-        <button id="themeToggle" class="theme-toggle">🌙</button>
+        <button id="themeToggle" class="theme-toggle">☀️</button>
       </div>
-    </div>
+    </header>
 
-    <form id="searchForm" class="search-box">
-      <input
-        type="text"
-        id="cityInput"
-        placeholder="Enter city name..."
-        autocomplete="off"
-      />
-      <button type="submit">Search</button>
-    </form>
+    <main class="layout">
 
-    <!-- shown while fetching data -->
-    <div id="loader" class="loader hidden">
-      <div class="spinner"></div>
-      <p>Fetching weather data...</p>
-    </div>
+      <section class="panel-search">
+        <p class="eyebrow">Find a city</p>
+        <h1 class="headline">Where's the<br />sky today?</h1>
 
-    <!-- shown when city is not found / fetch fails -->
-    <div id="errorBox" class="error-box hidden">
-      <p id="errorText">City not found. Please try again.</p>
-    </div>
+        <form id="searchForm" class="search-box" autocomplete="off">
+          <div class="search-wrap">
+            <input
+              type="text"
+              id="cityInput"
+              placeholder="Start typing a city..."
+              autocomplete="off"
+            />
+            <ul id="suggestionsList" class="suggestions-list hidden"></ul>
+          </div>
+          <button type="submit">Search</button>
+        </form>
 
-    <!-- main weather card -->
-    <div id="weatherCard" class="weather-card hidden">
-      <h2 id="cityName"></h2>
-      <p id="dateTime"></p>
-
-      <div class="main-info">
-        <img id="weatherIcon" src="" alt="weather icon" />
-        <h1 id="temperature"></h1>
-      </div>
-
-      <p id="description" class="description"></p>
-
-      <div class="details">
-        <div class="detail-item">
-          <span class="label">Humidity</span>
-          <span id="humidity" class="value"></span>
+        <div id="historySection" class="history-section hidden">
+          <div class="history-header">
+            <span>Recent</span>
+            <button id="clearHistory" class="clear-btn">Clear</button>
+          </div>
+          <ul id="historyList" class="history-list"></ul>
         </div>
-        <div class="detail-item">
-          <span class="label">Wind Speed</span>
-          <span id="wind" class="value"></span>
-        </div>
-        <div class="detail-item">
-          <span class="label">Feels Like</span>
-          <span id="feelsLike" class="value"></span>
-        </div>
-      </div>
-    </div>
+      </section>
 
-    <!-- recent searches -->
-    <div id="historySection" class="history-section hidden">
-      <div class="history-header">
-        <span>Recent Searches</span>
-        <button id="clearHistory" class="clear-btn">Clear History</button>
-      </div>
-      <ul id="historyList" class="history-list"></ul>
-    </div>
+      <section class="panel-weather">
+
+        <div id="loader" class="loader hidden">
+          <div class="spinner"></div>
+          <p>Fetching weather data...</p>
+        </div>
+
+        <div id="errorBox" class="error-box hidden">
+          <p id="errorText">City not found. Please try again.</p>
+        </div>
+
+        <div id="weatherCard" class="weather-card hidden">
+          <div class="weather-top">
+            <div>
+              <h2 id="cityName"></h2>
+              <p id="dateTime"></p>
+            </div>
+            <img id="weatherIcon" src="" alt="weather icon" />
+          </div>
+
+          <h1 id="temperature" class="temp-hero"></h1>
+          <p id="description" class="description"></p>
+
+          <div class="details">
+            <div class="detail-item">
+              <span class="label">Humidity</span>
+              <span id="humidity" class="value"></span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Wind Speed</span>
+              <span id="wind" class="value"></span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Feels Like</span>
+              <span id="feelsLike" class="value"></span>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer class="credit">Made by Rayyan Bashir</footer>
+
   </div>
 
   <script src="script.js"></script>
